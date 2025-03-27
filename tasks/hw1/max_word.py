@@ -1,4 +1,4 @@
-with open('tasks/lab1/files/example.txt', encoding='UTF-8') as f:
+with open('tasks/hw1/files/example.txt', encoding='UTF-8') as f:
     text = f.read().lower()
 
 words = []

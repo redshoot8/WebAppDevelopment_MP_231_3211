@@ -18,7 +18,6 @@ def list_files_by_extension(directory_path):
             extension_groups[ext].append(filename)
         
         for ext in sorted(extension_groups.keys()):
-            print(f'\nРасширение "{ext}":')
             for filename in sorted(extension_groups[ext]):
                 print(filename)
                 

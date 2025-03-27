@@ -2,7 +2,7 @@ import math
 
 
 class Complex(object):
-    def __init__(self, real, imaginary):
+    def __init__(self, real: float = 0.0, imaginary: float = 0.0):
         self.real = real
         self.imaginary = imaginary
 
@@ -25,7 +25,7 @@ class Complex(object):
         )
         
     def mod(self):
-        return math.sqrt(self.real ** 2 + self.imaginary ** 2)
+        return Complex(math.sqrt(self.real ** 2 + self.imaginary ** 2))
         
     def __str__(self):
         if self.imaginary == 0:

@@ -14,7 +14,11 @@ class Point:
         return self.x * other.x + self.y * other.y + self.z * other.z       
         
     def cross(self, other):
-        return Point(self.y * other.z - self.z * other.y, self.z * other.x - self.x * other.z, self.x * other.y - self.y * other.x)    
+        return Point(
+            self.y * other.z - self.z * other.y, 
+            self.z * other.x - self.x * other.z, 
+            self.x * other.y - self.y * other.x
+        )    
         
     def absolute(self):
         return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)

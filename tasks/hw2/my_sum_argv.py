@@ -11,6 +11,6 @@ if __name__ == '__main__':
         result = my_sum(*numbers)
         print(result)
     else:
-        number = [int(num) for num in input('Введите числа через пробел: ').split()]
+        number = map(int, input().split())
         result = my_sum(*number)
         print(result)

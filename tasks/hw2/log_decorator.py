@@ -41,4 +41,4 @@ def greeting_format(name):
 
 
 if __name__ == '__main__':
-    greeting_format('John')
+    greeting_format('ASDADBA')

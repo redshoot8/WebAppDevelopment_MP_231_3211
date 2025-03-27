@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Заголовок поста -->
+        <h1 class="mt-4">{{ post.title }}</h1>
+        
+        <!-- Автор и дата публикации -->
+        <p class="lead">
+            Опубликовано {{ post.date.strftime('%d.%m.%Y') }}. Автор: {{ post.author }}
+        </p>
+
+        <!-- Изображение поста -->
+        <img class="img-fluid rounded" src="{{ url_for('static', filename='images/' + post.image_id) }}" alt="Post image">
+
+        <!-- Текст поста -->
+        <p class="mt-4">{{ post.text }}</p>
+
+        <!-- Форма для комментариев -->
+        <div class="card my-4">
+            <h5 class="card-header">Оставьте комментарий:</h5>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Комментарии -->
+        <div class="media mb-4">
+            <div class="media-body">
+                <h5 class="mt-0">Комментарии</h5>
+                {% for comment in post.comments %}
+                    <div class="media mt-4">
+                        <div class="media-body comment">
+                            <h6 class="mt-0">{{ comment.author }}</h6>
+                            <p>{{ comment.text }}</p>
+                            {% if comment.replies %}
+                                {% for reply in comment.replies %}
+                                    <div class="media mt-4 reply">
+                                        <div class="media-body">
+                                            <h6 class="mt-0">{{ reply.author }}</h6>
+                                            <p>{{ reply.text }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
